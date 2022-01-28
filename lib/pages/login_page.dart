@@ -10,6 +10,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool onChanged = false;
+  String name = "";
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class _LoginPageState extends State<LoginPage> {
               height: 30,
             ),
             Text(
-              "Welcome",
+              "Welcome $name",
               style: TextStyle(fontWeight: FontWeight.w700, fontSize: 25),
             ),
             Padding(
@@ -38,6 +39,10 @@ class _LoginPageState extends State<LoginPage> {
                       hintText: "Enter username",
                       labelText: "Username",
                     ),
+                    onChanged: (value) {
+                      name = value;
+                      setState(() {});
+                    },
                   ),
                   TextFormField(
                     obscureText: true,
@@ -80,11 +85,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   )
-                  // ElevatedButton(
-                  //     onPressed: () {
-                  //       Navigator.pushNamed(context, MyRoutes.homeRoute);
-                  //     },
-                  //     child: Text("Login")),
+                 
                 ],
               ),
             )
